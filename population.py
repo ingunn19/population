@@ -33,7 +33,7 @@ def list_lines(file_object):
     return lines
 
 
-#Create a function which splits each value of lines into a list
+#Create a function which splits each value of "lines" list into a list
 def split_columns(lines):
     columns = [column.split() for column in lines]
     return columns
@@ -51,7 +51,7 @@ def check_year(columns, year):
 
 
 #Create a function that creates a new list where each value is a tuple
-#Each tuple includes the name of the state and its population during said year
+#Each tuple includes the name of the state and its population during previously input year
 def state_year(columns, year_to_check):
     state_pop = [(int(columns[i][year_to_check]), ((columns[i][0]).replace("_", " ")).strip()) for i in range(1, len(columns))]
     return state_pop
@@ -76,6 +76,8 @@ def printing(min_pop, max_pop):
 def main():
     filename = input("Enter filename: ")
     file_object = open_file(filename)
+# If the "open file" function could not find the file it returns false
+# and thus the rest of the program will not run
     if file_object:
         year = input("Enter year: ")
         lines = list_lines(file_object)
