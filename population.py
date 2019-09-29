@@ -50,7 +50,7 @@ def check_year(columns, year):
 
 def gather_numbers(columns, year_to_check):
     numbers = []
-    for i in range (1, len(columns):
+    for i in range (1, len(columns)):
         numbers.append(columns[i, year_to_check])
     return numbers
 
