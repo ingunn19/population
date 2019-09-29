@@ -62,13 +62,22 @@ def min_max(numbers):
 
 
 def state(min_pop, max_pop, columns):
-    
+    min_toup = ()
+    max_toup = ()
+    for i in range(1, len(columns)):
+        if columns[i][columns[i].index(min_pop)]:
+            min_toup += columns[i][0] + columns[i][columns[i].index(min_pop)]
+    for i in range(1, len(columns)):
+        if columns[i][columns[i].index(max_pop)]:
+            max_toup += columns[i][0] + columns[i][columns[i].index(max_pop)]
+    return min_toup, max_toup
 
 
 #...
 
-def print_test(min_pop, max_pop):
-    print(min_pop, max_pop)
+def print_test(min_toup, max_toup):
+    print("Minimum:", min_toup)
+    print("Maximum:", max_toup)
 
 #...
 
@@ -83,7 +92,8 @@ def main():
         year_to_check = check_year(columns, year)
         numbers = gather_numbers(columns, year_to_check)
         min_pop, max_pop = min_max(numbers)
-        print_test(min_pop, max_pop)
+        min_toup, max_toup = state(min_pop, max_pop, columns)
+        print_test(min_toup, max_toup)
 
 
 main()
