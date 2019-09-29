@@ -30,7 +30,7 @@ def open_file(filename):
 
 
 def list_lines(file_object):
-    lines = [line.strip() for line in file_object]
+    lines = [(line.replace(" ", "", 1)).strip() for line in file_object]
     return lines
 
 
@@ -56,8 +56,8 @@ def gather_numbers(columns, year_to_check):
 
 #...
 
-def print_test(numbers):
-    print(numbers)
+def print_test(columns):
+    print(columns.index("1990"))
 
 #...
 
@@ -70,8 +70,8 @@ def main():
         lines = list_lines(file_object)
         columns = split_columns(lines)
         year_to_check = check_year(columns, year)
-        numbers = gather_numbers(columns, year_to_check)
-        print_test(numbers)
+#        numbers = gather_numbers(columns, year_to_check)
+        print_test(columns)
 
 
 main()
