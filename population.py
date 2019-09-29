@@ -1,6 +1,4 @@
 """
-
-    To-do
 - ask for filename -x-
 - open file -x-
 - stop program if file does not exist -x-
@@ -12,9 +10,7 @@
 - if year is not available error message and ask again -x-
 - gather population numbers under designated year -x-
 - find min and max population numbers -x-
-- create touple (min number, state) -x-
-- create touple (max number, state) -x-
-- print -x-
+- print min and max -x-
 
 """
 
