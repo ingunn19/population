@@ -54,10 +54,20 @@ def gather_numbers(columns, year_to_check):
         numbers.append(columns[i] [year_to_check])
     return numbers
 
+
+def min_max(numbers):
+    min_pop = min(numbers)
+    max_pop = max(numbers)
+    return min_pop, max_pop
+
 #...
 
-def print_test(numbers):
-    print(numbers)
+def print_test(min_pop, max_pop):
+    print(min_pop, max_pop)
+
+
+def state(min_pop, max_pop, columns):
+    
 
 #...
 
@@ -71,7 +81,8 @@ def main():
         columns = split_columns(lines)
         year_to_check = check_year(columns, year)
         numbers = gather_numbers(columns, year_to_check)
-        print_test(numbers)
+        min_pop, max_pop = min_max(numbers)
+        print_test(min_pop, max_pop)
 
 
 main()
