@@ -11,7 +11,7 @@
 - check if year is valid -x-
 - if year is not available error message and ask again -x-
 - gather population numbers under designated year -x-
-- find min and max population numbers
+- find min and max population numbers -x-
 - create touple (min number, state)
 - create touple (max number, state)
 - print
@@ -30,7 +30,7 @@ def open_file(filename):
 
 
 def list_lines(file_object):
-    lines = [(line.replace(" ", "", 1)).strip() for line in file_object]
+    lines = [(line.replace(" ", "_", 1)).strip() for line in file_object]
     return lines
 
 
@@ -60,14 +60,15 @@ def min_max(numbers):
     max_pop = max(numbers)
     return min_pop, max_pop
 
+
+def state(min_pop, max_pop, columns):
+    
+
+
 #...
 
 def print_test(min_pop, max_pop):
     print(min_pop, max_pop)
-
-
-def state(min_pop, max_pop, columns):
-    
 
 #...
 
