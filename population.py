@@ -10,7 +10,7 @@
 - split items in list to list by spaces (columns) -x-
 - check if year is valid -x-
 - if year is not available error message and ask again -x-
-- gather population numbers under designated year
+- gather population numbers under designated year -x-
 - find min and max population numbers
 - create touple (min number, state)
 - create touple (max number, state)
