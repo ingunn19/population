@@ -62,14 +62,9 @@ def min_max(numbers):
 
 
 def state(min_pop, max_pop, columns):
-    min_toup = ()
-    max_toup = ()
-    for i in range(1, len(columns)):
-        if columns[i][columns[i].index(min_pop)]:
-            min_toup += columns[i][0] + columns[i][columns[i].index(min_pop)]
-    for i in range(1, len(columns)):
-        if columns[i][columns[i].index(max_pop)]:
-            max_toup += columns[i][0] + columns[i][columns[i].index(max_pop)]
+    min_toup = [[columns[i][columns[i].index(min_pop)], ((columns[i][0]).replace("_", " "))] for i in range(len(columns)) if min_pop in columns[i]]
+    max_toup = [[columns[i][columns[i].index(max_pop)], ((columns[i][0]).replace("_", " "))] for i in range(len(columns)) if max_pop in columns[i]]
+
     return min_toup, max_toup
 
 
