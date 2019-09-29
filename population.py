@@ -51,13 +51,13 @@ def check_year(columns, year):
 def gather_numbers(columns, year_to_check):
     numbers = []
     for i in range (1, len(columns)):
-        numbers.append(columns[i, year_to_check])
+        numbers.append(columns[i] [year_to_check])
     return numbers
 
 #...
 
-def print_test(columns):
-    print(columns.index("1990"))
+def print_test(numbers):
+    print(numbers)
 
 #...
 
@@ -70,8 +70,8 @@ def main():
         lines = list_lines(file_object)
         columns = split_columns(lines)
         year_to_check = check_year(columns, year)
-#        numbers = gather_numbers(columns, year_to_check)
-        print_test(columns)
+        numbers = gather_numbers(columns, year_to_check)
+        print_test(numbers)
 
 
 main()
