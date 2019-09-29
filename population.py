@@ -12,9 +12,9 @@
 - if year is not available error message and ask again -x-
 - gather population numbers under designated year -x-
 - find min and max population numbers -x-
-- create touple (min number, state)
-- create touple (max number, state)
-- print
+- create touple (min number, state) -x-
+- create touple (max number, state) -x-
+- print -x-
 
 """
 
@@ -48,33 +48,21 @@ def check_year(columns, year):
     return year_to_check
 
 
-def gather_numbers(columns, year_to_check):
-    numbers = []
-    for i in range (1, len(columns)):
-        numbers.append(columns[i] [year_to_check])
-    return numbers
+def state_year(columns, year_to_check):
+    state_pop = [(int(columns[i][year_to_check]), ((columns[i][0]).replace("_", " ")).strip()) for i in range(1, len(columns))]
+    return state_pop
 
 
-def min_max(numbers):
-    min_pop = min(numbers)
-    max_pop = max(numbers)
+def min_max(state_pop):
+    state_pop = sorted(state_pop)
+    min_pop = state_pop[0]
+    max_pop = state_pop[-1]
     return min_pop, max_pop
 
 
-def state(min_pop, max_pop, columns):
-    min_toup = [[columns[i][columns[i].index(min_pop)], ((columns[i][0]).replace("_", " "))] for i in range(len(columns)) if min_pop in columns[i]]
-    max_toup = [[columns[i][columns[i].index(max_pop)], ((columns[i][0]).replace("_", " "))] for i in range(len(columns)) if max_pop in columns[i]]
-
-    return tuple(min_toup[0]), tuple(max_toup[0])
-
-
-#...
-
-def print_test(min_toup, max_toup):
-    print("Minimum:", min_toup)
-    print("Maximum:", max_toup)
-
-#...
+def printing(min_pop, max_pop):
+    print("Minimum:", min_pop)
+    print("Maximum:", max_pop)
 
 
 def main():
@@ -85,10 +73,10 @@ def main():
         lines = list_lines(file_object)
         columns = split_columns(lines)
         year_to_check = check_year(columns, year)
-        numbers = gather_numbers(columns, year_to_check)
-        min_pop, max_pop = min_max(numbers)
-        min_toup, max_toup = state(min_pop, max_pop, columns)
-        print_test(min_toup, max_toup)
+        state_pop = state_year(columns, year_to_check)
+        min_pop, max_pop = min_max(state_pop)
+        printing(min_pop, max_pop)
+        file_object.close()
 
 
 main()
