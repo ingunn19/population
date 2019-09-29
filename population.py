@@ -19,7 +19,8 @@
 """
 
 
-
+#Create a function that reads the file which the user inputs
+#If the file does not exist the except returns false
 def open_file(filename):
     try:
         file_object = open(filename, "r")
@@ -29,16 +30,21 @@ def open_file(filename):
         return False
 
 
+#Create a function that replaces the first whitespace of each line with "_"
+#Then the strip-function removes leading and trailing whitespaces and newlines
 def list_lines(file_object):
     lines = [(line.replace(" ", "_", 1)).strip() for line in file_object]
     return lines
 
 
+#Create a function which splits each value of lines into a list
 def split_columns(lines):
     columns = [column.split() for column in lines]
     return columns
 
 
+#Create a function that takes the input year and tries to find the index of it
+#If the funcion cannot find the index, it asks you to input a new year
 def check_year(columns, year):
     try:
         year_to_check = columns[0].index(year)
@@ -48,11 +54,16 @@ def check_year(columns, year):
     return year_to_check
 
 
+#Create a function that creates a new list where each value is a tuple
+#Each tuple includes the name of the state and its population during said year
 def state_year(columns, year_to_check):
     state_pop = [(int(columns[i][year_to_check]), ((columns[i][0]).replace("_", " ")).strip()) for i in range(1, len(columns))]
     return state_pop
 
 
+#Create a function that sorts the list by population (ascending)
+#Then we create variables that hold the first and last value of the list
+#Thus we have tuples of the least and most populous states
 def min_max(state_pop):
     state_pop = sorted(state_pop)
     min_pop = state_pop[0]
@@ -65,6 +76,7 @@ def printing(min_pop, max_pop):
     print("Maximum:", max_pop)
 
 
+#Main program where we invoke the functions
 def main():
     filename = input("Enter filename: ")
     file_object = open_file(filename)
@@ -79,4 +91,5 @@ def main():
         file_object.close()
 
 
+#Start main program
 main()
