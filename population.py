@@ -1,20 +1,20 @@
 """
 
     To-do
-ask for filename -x-
-open file -x-
-stop program if file does not exist -x-
-ask for year to check -x-
-read file -x-
-split text into list by newline (lines) -x-
-split items in list to list by spaces (columns) -x-
-check if year is valid -x-
-if year is not available error message and ask again -x-
-gather population numbers under designated year
-find min and max population numbers
-create touple (min number, state)
-create touple (max number, state)
-print
+- ask for filename -x-
+- open file -x-
+- stop program if file does not exist -x-
+- ask for year to check -x-
+- read file -x-
+- split text into list by newline (lines) -x-
+- split items in list to list by spaces (columns) -x-
+- check if year is valid -x-
+- if year is not available error message and ask again -x-
+- gather population numbers under designated year
+- find min and max population numbers
+- create touple (min number, state)
+- create touple (max number, state)
+- print
 
 """
 
