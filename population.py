@@ -47,6 +47,7 @@ def check_year(columns, year):
     except ValueError:
         print("Invalid year!")
         year = input("Enter year:")
+        check_year(columns, year)
     return year_to_check
 
 
