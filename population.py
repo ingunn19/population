@@ -44,11 +44,12 @@ def split_columns(lines):
 def check_year(columns, year):
     try:
         year_to_check = columns[0].index(year)
+        return year_to_check
     except ValueError:
         print("Invalid year!")
-        year = input("Enter year:")
+        year = input("Enter year: ")
         check_year(columns, year)
-    return year_to_check
+
 
 
 #Create a function that creates a new list where each value is a tuple
