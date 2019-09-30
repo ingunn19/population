@@ -42,13 +42,11 @@ def split_columns(lines):
 #Create a function that takes the input year and tries to find the index of it
 #If the funcion cannot find the index, it asks you to input a new year
 def check_year(columns, year):
-    try:
-        year_to_check = columns[0].index(year)
-        return year_to_check
-    except ValueError:
+    while year not in columns[0]:
         print("Invalid year!")
         year = input("Enter year: ")
-        check_year(columns, year)
+    year_to_check = columns[0].index(year)
+    return year_to_check
 
 
 
@@ -81,9 +79,9 @@ def main():
 # If the "open file" function could not find the file it returns false
 # and thus the rest of the program will not run
     if file_object:
-        year = input("Enter year: ")
         lines = list_lines(file_object)
         columns = split_columns(lines)
+        year = input("Enter year: ")
         year_to_check = check_year(columns, year)
         state_pop = state_year(columns, year_to_check)
         min_pop, max_pop = min_max(state_pop)
